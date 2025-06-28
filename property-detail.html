@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - PrimeStay</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PrimeStay</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="listing.html">Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                </ul>
+                <a href="list-property.html" class="btn btn-outline-primary ms-lg-3">List Your Property</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="property-detail-page section-padding" style="padding-top: 120px;">
+        <div class="container" id="property-detail-container">
+            <div class="text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Loading property details...</p>
+            </div>
+        </div>
+
+        <template id="property-detail-template">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div id="property-image-carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators" id="carousel-indicators-container">
+                            </div>
+                        <div class="carousel-inner" id="carousel-inner-container">
+                            </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#property-image-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#property-image-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="property-main-info p-4 bg-light rounded">
+                        <h1 class="playfair-display property-title">__TITLE__</h1>
+                        <p class="property-location text-muted fs-5"><i class="bi bi-geo-alt-fill"></i> __LOCATION__</p>
+                        <p class="property-price fs-2 fw-bold text-primary">__PRICE__</p>
+                        <div class="property-key-features d-flex justify-content-around text-center border-top border-bottom py-3 my-3">
+                            <div><i class="bi bi-rulers fs-3"></i><p class="mb-0">__SQFT__ sqft</p></div>
+                            <div><i class="bi bi-door-closed fs-3"></i><p class="mb-0">__BEDROOMS__ beds</p></div>
+                            <div><i class="bi bi-droplet fs-3"></i><p class="mb-0">__BATHROOMS__ baths</p></div>
+                        </div>
+                        <a href="#agent-contact" class="btn btn-primary w-100 btn-lg">Contact Agent</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8">
+                    <h3 class="playfair-display">Description</h3>
+                    <p class="property-description">__DESCRIPTION__</p>
+
+                    <h3 class="playfair-display mt-4">Amenities</h3>
+                    <div class="property-amenities-list row g-3">
+                        </div>
+                </div>
+                <div class="col-lg-4" id="agent-contact">
+                     <div class="agent-card sticky-top p-4 border rounded">
+                         <h4 class="playfair-display">Contact Agent</h4>
+                         <p class="agent-name fs-5">__AGENT_NAME__</p>
+                         <ul class="list-unstyled">
+                             <li><i class="bi bi-telephone-fill me-2"></i>__AGENT_PHONE__</li>
+                             <li><i class="bi bi-envelope-fill me-2"></i>__AGENT_EMAIL__</li>
+                         </ul>
+                         <form>
+                             <div class="mb-2"><input type="text" class="form-control" placeholder="Your Name"></div>
+                             <div class="mb-2"><input type="email" class="form-control" placeholder="Your Email"></div>
+                             <div class="mb-2"><textarea class="form-control" rows="3" placeholder="I'm interested in this property..."></textarea></div>
+                             <button type="submit" class="btn btn-secondary w-100">Send Message</button>
+                         </form>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </main>
+
+        <section id="similar-properties" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Similar Properties</h2>
+            </div>
+            <div class="row g-4" id="similar-properties-container">
+                </div>
+        </div>
+    </section>
+    
+        <footer id="contact"> <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="playfair-display">PrimeStay</h5>
+                    <p>Your journey to finding the perfect home starts here. We are committed to providing exceptional service and expertise.</p>
+                     <div class="social-icons mt-3">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="listing.html?type=rent">For Rent</a></li> <li><a href="listing.html?type=sale">For Sale</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">FAQs</a></li> </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-geo-alt-fill me-2"></i>123 Main Street, Anytown, USA</li>
+                        <li><i class="bi bi-telephone-fill me-2"></i>(555) 123-4567</li>
+                        <li><i class="bi bi-envelope-fill me-2"></i>info@primestay.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Newsletter</h5>
+                    <p>Stay updated with our latest properties and news.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="button" style="background-color: #e74c3c; border-color: #e74c3c;">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr style="border-color: #3e5062;">
+            <div class="text-center pt-2">
+                <p>&copy; <span id="currentYear"></span> PrimeStay. All Rights Reserved. Designed with <i class="bi bi-heart-fill" style="color: #e74c3c;"></i></p>
+            </div>
+        </div>
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

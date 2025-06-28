@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Property - PrimeStay</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="asset/LogoPhase(2.2.0).PNG" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PrimeStay</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="listing.html">Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                </ul>
+                <a href="list-property.html" class="btn btn-outline-primary ms-lg-3">List Your Property</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="section-padding" style="padding-top: 120px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    
+                    <div id="form-success-message" class="text-center p-5 border rounded-3 bg-light d-none">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                        <h2 class="playfair-display mt-3">Listing Submitted!</h2>
+                        <p class="lead">Thank you! Your property has been submitted for review. We will contact you shortly.</p>
+                        <button id="list-another-btn" class="btn btn-outline-primary mt-3">List Another Property</button>
+                    </div>
+
+                    <div id="listing-form-container">
+                        <div class="text-center mb-5">
+                            <h1 class="playfair-display section-title">List Your Property</h1>
+                            <p class="lead">Fill out the form below to reach thousands of potential buyers and renters.</p>
+                        </div>
+    
+                        <form id="property-listing-form" class="p-4 p-md-5 border rounded-3 bg-light" novalidate>
+                            <h4 class="mb-3">Basic Information</h4>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="prop-title" class="form-label">Property Title</label>
+                                    <input type="text" class="form-control" id="prop-title" placeholder="e.g., Modern Downtown Apartment" required>
+                                    <div class="invalid-feedback">A property title is required.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="prop-status" class="form-label">Status</label>
+                                    <select class="form-select" id="prop-status" required>
+                                        <option value="" selected disabled>Choose...</option>
+                                        <option value="sale">For Sale</option>
+                                        <option value="rent">For Rent</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a status.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="prop-type" class="form-label">Property Type</label>
+                                    <select class="form-select" id="prop-type" required>
+                                        <option value="" selected disabled>Choose...</option>
+                                        <option value="apartment">Apartment</option>
+                                        <option value="house">House</option>
+                                        <option value="villa">Villa</option>
+                                        <option value="commercial">Commercial</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a property type.</div>
+                                </div>
+                            </div>
+    
+                            <hr class="my-4">
+    
+                            <h4 class="mb-3">Property Details</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="prop-price" class="form-label">Price ($)</label>
+                                    <input type="number" class="form-control" id="prop-price" placeholder="e.g., 500000" required>
+                                    <div class="invalid-feedback">Please enter a valid price.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="prop-sqft" class="form-label">Area (sqft)</label>
+                                    <input type="number" class="form-control" id="prop-sqft" placeholder="e.g., 1200" required>
+                                    <div class="invalid-feedback">Please enter a valid area.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="prop-bedrooms" class="form-label">Bedrooms</label>
+                                    <input type="number" class="form-control" id="prop-bedrooms" required min="0">
+                                    <div class="invalid-feedback">Please enter the number of bedrooms.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="prop-bathrooms" class="form-label">Bathrooms</label>
+                                    <input type="number" class="form-control" id="prop-bathrooms" required min="0">
+                                    <div class="invalid-feedback">Please enter the number of bathrooms.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="prop-description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="prop-description" rows="4" placeholder="Describe the property in detail..." required></textarea>
+                                    <div class="invalid-feedback">A description is required.</div>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h4 class="mb-3">Media</h4>
+                             <div class="col-12">
+                                <label for="prop-photos" class="form-label">Upload Photos</label>
+                                <input class="form-control" type="file" id="prop-photos" multiple required>
+                                <div class="invalid-feedback">Please upload at least one photo.</div>
+                             </div>
+
+                            <hr class="my-4">
+
+                            <h4 class="mb-3">Your Contact Information</h4>
+                             <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="contact-name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="contact-name" required>
+                                    <div class="invalid-feedback">Your name is required.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contact-email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="contact-email" required>
+                                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                                </div>
+                             </div>
+    
+                            <hr class="my-4">
+    
+                            <button class="w-100 btn btn-primary btn-lg submit-listing-btn" type="submit">Submit Listing for Review</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact"> <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="playfair-display">PrimeStay</h5>
+                    <p>Your journey to finding the perfect home starts here. We are committed to providing exceptional service and expertise.</p>
+                     <div class="social-icons mt-3">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="listing.html?type=rent">For Rent</a></li> <li><a href="listing.html?type=sale">For Sale</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">FAQs</a></li> </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-geo-alt-fill me-2"></i>123 Main Street, Anytown, USA</li>
+                        <li><i class="bi bi-telephone-fill me-2"></i>(555) 123-4567</li>
+                        <li><i class="bi bi-envelope-fill me-2"></i>info@primestay.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Newsletter</h5>
+                    <p>Stay updated with our latest properties and news.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="button" style="background-color: #e74c3c; border-color: #e74c3c;">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr style="border-color: #3e5062;">
+            <div class="text-center pt-2">
+                <p>&copy; <span id="currentYear"></span> PrimeStay. All Rights Reserved. Designed with <i class="bi bi-heart-fill" style="color: #e74c3c;"></i></p>
+            </div>
+        </div>
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
